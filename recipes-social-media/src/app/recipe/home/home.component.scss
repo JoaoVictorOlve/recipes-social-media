@@ -1,0 +1,79 @@
+/* Define a responsive grid for recipe cards */
+
+main{
+  padding-top:137px;
+}
+
+.recipes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+/* Style each recipe card */
+.recipe-card {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Style the recipe image */
+.recipe-image {
+  background-image:url('../../../assets/alternative-image.jpg');
+  width:250px;
+  height:200px;
+  object-fit:cover;
+}
+
+/* Style the recipe details (title and author) */
+.recipe-details {
+  padding: 15px;
+}
+
+.recipe-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.recipe-author {
+  font-size: 1rem;
+  color: #888;
+  margin: 5px 0;
+}
+
+/* Style the pagination container */
+.pagination-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.load-more-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.load-more-button:hover {
+  background-color: #0056b3;
+}
+
+a{
+  text-decoration:none;
+  color:black;
+}
+
+.error-page{
+  height:280px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}

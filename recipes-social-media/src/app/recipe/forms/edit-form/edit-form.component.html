@@ -1,0 +1,23 @@
+<main>
+  <form class="recipe-container" [formGroup]="editRecipeForm" (ngSubmit)="onSubmit()">
+
+    <label class="form-text">Nome da Receita:</label>
+    <input class="textbox" formControlName="title" type="text" ngModel required>
+
+    <label class="form-text">URL da Imagem:</label>
+    <input class="textbox" formControlName="image" type="text" ngModel required>
+
+
+    <label class="recipe-ingredient">Ingredientes:</label>
+
+    <textarea class="textarea-box" id="ingredients-textarea" formControlName="ingredients" ngModel required ></textarea>
+
+    <label class="recipe-instructions">Modo de Preparo:</label>
+
+    <textarea class="textarea-box" id="instructions-textarea" formControlName="instructions" ngModel required></textarea>
+
+    <button type="submit" class="submit-button">Salvar</button>
+
+  </form>
+
+</main>

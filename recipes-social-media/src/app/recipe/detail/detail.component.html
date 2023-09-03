@@ -1,0 +1,60 @@
+<main>
+  <div class="recipe-container" *ngIf="recipe">
+
+    <div class="recipe-options">
+      <h2 class="recipe-name">{{ recipe.title }}</h2>
+      <div *ngIf="recipe.user_id == user_id">
+        <button [routerLink]="['/edit-form', recipe.id]" class="recipe-edit-btn">Editar</button>
+        <button (click)="deleteRecipe()" class="recipe-delete-btn">Excluir</button>
+      </div>
+    </div>
+
+    <img [src]="recipe.image" onerror="this.src='../../../assets/alternative-image.jpg'" alt="recipe image" class="recipe-image">
+
+    <h2 class="recipe-ingredient">Ingredientes</h2>
+
+    <textarea readonly class="textarea-box" id="ingredients-textarea">{{recipe.ingredients}}</textarea>
+
+    <h2 class="recipe-instructions">Modo de Preparo</h2>
+
+    <textarea readonly class="textarea-box">{{ recipe.instructions }}</textarea>
+
+  </div>
+
+  <div class="submit-comment-container">
+    <div class="submit-body">
+      <input [(ngModel)]="commentInput" class="comment-input" type="text">
+      <button (click)="newComment()" class="comment-button">Comentar</button>
+    </div>
+  </div>
+
+  <div class="comments-container">
+    <ng-container *ngIf="comments.length > 0 else noCommentsTemplate">
+    <div *ngFor="let comment of comments" class="comment-body">
+      <div class="comment-author">
+        <img src="../../../assets/account_logo.png" class="comment-author-pic">
+      </div>
+      <div class="comment-infos">
+        <div class="comment-author-box">
+          <div class="comment-username">
+            {{ comment.User?.name }}
+          </div>
+          <div class="comment-delete-container">
+            <button (click)="deleteComment(comment.id|| 0)" *ngIf="comment.user_id == user_id" class="comment-delete-btn">X</button>
+          </div>
+        </div>
+        <div class="comment-textbox">
+          {{ comment.comment }}
+        </div>
+      </div>
+    </div>
+    </ng-container>
+
+    <ng-template #noCommentsTemplate>
+      <h2>Ainda sem comentários? Seja o primeiro a comentar!</h2>
+    </ng-template>
+
+  </div>
+
+
+</main>

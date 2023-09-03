@@ -1,0 +1,16 @@
+<header>
+  <div class="left-side">
+    <img routerLink="/" src="../../../assets/Rpb_food_icon.png" class="header-icon">
+  </div>
+
+  <div class="right-side">
+    <div class="login-and-register-bar" *ngIf="!isLoggedIn()">
+      <div class="nav-button"><a routerLink="/auth/login" class="nav-link">Login</a></div>
+      <div class="nav-button"><a routerLink="/auth/register" class="nav-link">Registrar</a></div>
+    </div>
+    <div class="login-and-register-bar" *ngIf="isLoggedIn()">
+      <div class="nav-button"><a routerLink="/create-form" class="nav-link">Criar</a></div>
+      <button class="nav-button" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</header>
